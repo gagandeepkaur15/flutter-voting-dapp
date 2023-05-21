@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voting_dapp/pages/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         ),
         appBarTheme: const AppBarTheme(elevation: 0),
       ),
+      home: const Home(),
     );
   }
 }
