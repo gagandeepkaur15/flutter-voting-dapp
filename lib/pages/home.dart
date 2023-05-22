@@ -49,13 +49,18 @@ class _HomeState extends State<Home> {
               height: 45,
               child: ElevatedButton(
                 onPressed: () async {
-                  if (controller.text.length > 0) {
+                  if (controller.text.isNotEmpty) {
                     await startElection(controller.text, ethClient!);
+                    // ignore: use_build_context_synchronously
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ElectionInfo(),
-                        ));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ElectionInfo(
+                          ethClient: ethClient!,
+                          electionName: controller.text,
+                        ),
+                      ),
+                    );
                   }
                 },
                 child: const Text('Start Election'),
